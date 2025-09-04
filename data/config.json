@@ -1,0 +1,14 @@
+{
+  "configs": [
+    {
+      "id": "1",
+      "userId": "1",
+      "mode": "demo",
+      "webhookUrl": "",
+      "systemStyle": "You are Nova AI, a helpful assistant that provides clear, concise, and friendly responses. Always be professional yet approachable.",
+      "apiKey": "",
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ]
+}
