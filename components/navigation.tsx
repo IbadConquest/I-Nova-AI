@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, memo } from "react"
 import { useTheme } from "next-themes"
 import { useAuth } from "@/hooks/use-auth"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X, LogOut, User, Volume2, Settings } from "lucide-react"
+import { Moon, Sun, Menu, X, LogOut, User, Settings, Sparkles } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -56,8 +56,8 @@ function NavigationComponent() {
           <a href="/#pricing" className="hover:text-primary transition-colors">
             Pricing
           </a>
-          <Link href="/voice" className="hover:text-primary transition-colors">
-            Voice Studio
+          <Link href="/generate" className="hover:text-primary transition-colors">
+            AI Generator
           </Link>
           <Link href="/contact" className="hover:text-primary transition-colors">
             Contact
@@ -95,9 +95,9 @@ function NavigationComponent() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/voice">
-                    <Volume2 className="h-4 w-4 mr-2" />
-                    Voice Studio
+                  <Link href="/generate">
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    AI Generator
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -154,11 +154,11 @@ function NavigationComponent() {
               Pricing
             </a>
             <Link
-              href="/voice"
+              href="/generate"
               className="block text-sm text-muted-foreground hover:text-primary"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Voice Studio
+              AI Generator
             </Link>
             <Link
               href="/contact"

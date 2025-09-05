@@ -12,23 +12,23 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <Badge variant="secondary" className="hero-badge mb-6 text-primary hover-card">
-              New • n8n-ready
+              New • AI Powered
             </Badge>
 
             <h1 className="hero-title text-4xl sm:text-6xl font-extrabold leading-tight tracking-tight text-balance">
-              Turn every message into a{" "}
+              Unleash your creativity with{" "}
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-                polished, on‑brand reply
+                AI chatbot & image generation
               </span>
             </h1>
 
             <p className="hero-description mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              Plug Nova AI into your n8n webhook or your own API. Drafts are fast, accurate, and match your tone.
+              Chat with our intelligent AI assistant and create stunning images from text. Fast, creative, and powerful AI tools at your fingertips.
             </p>
 
             <div className="hero-buttons mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button asChild size="lg" className="text-lg px-8 magnetic-button hover-button">
-                <Link href="/chat">Try the Assistant</Link>
+                <Link href="/generate">Try AI Generator</Link>
               </Button>
               <Button
                 asChild
@@ -36,7 +36,7 @@ export function HeroSection() {
                 size="lg"
                 className="text-lg px-8 magnetic-button hover-button bg-transparent"
               >
-                <Link href="#features">Explore Features</Link>
+                <Link href="/chat">Chat Assistant</Link>
               </Button>
             </div>
           </div>
