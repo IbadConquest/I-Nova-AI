@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, memo } from "react"
 import { useTheme } from "next-themes"
 import { useAuth } from "@/hooks/use-auth"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X, LogOut, User } from "lucide-react"
+import { Moon, Sun, Menu, X, LogOut, User, Settings, Sparkles } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-export function Navigation() {
+function NavigationComponent() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -30,23 +30,23 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     logout()
     router.push("/")
-  }
+  }, [logout, router])
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "glass-strong" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-primary to-accent grid place-items-center">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3l8.66 5v8L12 21l-8.66-5V8L12 3z" stroke="white" strokeWidth="1.6" />
+        <Link href="/" className="flex items-center justify-center gap-3 mx-auto md:mx-0">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-accent grid place-items-center shadow-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l8.66 5v8L12 21l-8.66-5V8L12 3z" stroke="white" strokeWidth="1.8" />
             </svg>
           </div>
-          <span className="font-semibold tracking-tight text-foreground">Nova AI</span>
+          <span className="font-bold text-xl tracking-tight text-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Nova AI</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
@@ -56,6 +56,9 @@ export function Navigation() {
           <a href="/#pricing" className="hover:text-primary transition-colors">
             Pricing
           </a>
+          <Link href="/generate" className="hover:text-primary transition-colors">
+            AI Generator
+          </Link>
           <Link href="/contact" className="hover:text-primary transition-colors">
             Contact
           </Link>
@@ -89,6 +92,18 @@ export function Navigation() {
                   <Link href="/chat">
                     <User className="h-4 w-4 mr-2" />
                     Chat
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/generate">
+                    <Sparkles className="h-4 w-4 mr-2" />
+                    AI Generator
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/admin">
+                    <Settings className="h-4 w-4 mr-2" />
+                    Admin Panel
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -139,6 +154,13 @@ export function Navigation() {
               Pricing
             </a>
             <Link
+              href="/generate"
+              className="block text-sm text-muted-foreground hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              AI Generator
+            </Link>
+            <Link
               href="/contact"
               className="block text-sm text-muted-foreground hover:text-primary"
               onClick={() => setIsMobileMenuOpen(false)}
@@ -180,3 +202,5 @@ export function Navigation() {
     </header>
   )
 }
+
+export const Navigation = memo(NavigationComponent)

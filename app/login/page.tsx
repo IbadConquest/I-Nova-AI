@@ -35,7 +35,7 @@ export default function LoginPage() {
 
       if (response.ok) {
         localStorage.setItem("user", JSON.stringify(data.user))
-        router.push("/chat")
+        router.push("/")
       } else {
         setError(data.error || "Login failed")
       }

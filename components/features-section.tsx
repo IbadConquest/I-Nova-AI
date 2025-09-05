@@ -1,36 +1,36 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Inbox, Bot, Puzzle, Shield, Settings, Edit } from "lucide-react"
+import { MessageSquare, Image, Bot, Sparkles, Zap, Palette } from "lucide-react"
 
 const features = [
   {
-    icon: Inbox,
-    title: "Smart Inbox",
-    description: "Capture name, email and message. Validate automatically.",
+    icon: MessageSquare,
+    title: "AI Chatbot",
+    description: "Intelligent conversations with context-aware responses and instant help.",
+  },
+  {
+    icon: Image,
+    title: "Image Generation",
+    description: "Create stunning AI-generated images from text descriptions.",
   },
   {
     icon: Bot,
-    title: "AI Drafts",
-    description: "Generate polished replies with your tone and policies.",
+    title: "Smart Assistant",
+    description: "Get help with writing, coding, planning, and creative tasks.",
   },
   {
-    icon: Puzzle,
-    title: "Plug & Play",
-    description: "Point to your webhook URL — no rebuilds required.",
+    icon: Sparkles,
+    title: "Creative AI",
+    description: "Unleash your creativity with advanced AI-powered tools.",
   },
   {
-    icon: Shield,
-    title: "Private by default",
-    description: "Requests stay between your browser and your endpoint.",
+    icon: Zap,
+    title: "Instant Results",
+    description: "Lightning-fast responses and image generation in seconds.",
   },
   {
-    icon: Settings,
-    title: "Configurable",
-    description: "Demo, n8n webhook, or custom proxy — your choice.",
-  },
-  {
-    icon: Edit,
-    title: "One‑click edit",
-    description: "Tone buttons: friendly, formal, concise.",
+    icon: Palette,
+    title: "Multiple Styles",
+    description: "Choose from realistic, artistic, digital, and many more art styles.",
   },
 ]
 
@@ -41,7 +41,7 @@ export function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Features</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Collect messages, draft answers with AI, approve, and send — all from one page.
+            Experience the power of AI with our advanced chatbot and image generation tools. Create, communicate, and innovate.
           </p>
         </div>
 
