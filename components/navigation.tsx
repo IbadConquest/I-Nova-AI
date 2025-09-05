@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, memo } from "react"
 import { useTheme } from "next-themes"
 import { useAuth } from "@/hooks/use-auth"
 import { Button } from "@/components/ui/button"
-import { Moon, Sun, Menu, X, LogOut, User } from "lucide-react"
+import { Moon, Sun, Menu, X, LogOut, User, Volume2, Settings } from "lucide-react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +15,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-export function Navigation() {
+function NavigationComponent() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -30,10 +30,10 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     logout()
     router.push("/")
-  }
+  }, [logout, router])
 
   return (
     <header
@@ -92,6 +92,18 @@ export function Navigation() {
                   <Link href="/chat">
                     <User className="h-4 w-4 mr-2" />
                     Chat
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/voice">
+                    <Volume2 className="h-4 w-4 mr-2" />
+                    Voice Studio
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/admin">
+                    <Settings className="h-4 w-4 mr-2" />
+                    Admin Panel
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
@@ -190,3 +202,5 @@ export function Navigation() {
     </header>
   )
 }
+
+export const Navigation = memo(NavigationComponent)
