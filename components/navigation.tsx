@@ -40,13 +40,13 @@ export function Navigation() {
       className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? "glass-strong" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-primary to-accent grid place-items-center">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3l8.66 5v8L12 21l-8.66-5V8L12 3z" stroke="white" strokeWidth="1.6" />
+        <Link href="/" className="flex items-center justify-center gap-3 mx-auto md:mx-0">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-primary to-accent grid place-items-center shadow-lg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3l8.66 5v8L12 21l-8.66-5V8L12 3z" stroke="white" strokeWidth="1.8" />
             </svg>
           </div>
-          <span className="font-semibold tracking-tight text-foreground">Nova AI</span>
+          <span className="font-bold text-xl tracking-tight text-foreground bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Nova AI</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-muted-foreground">
@@ -56,6 +56,9 @@ export function Navigation() {
           <a href="/#pricing" className="hover:text-primary transition-colors">
             Pricing
           </a>
+          <Link href="/voice" className="hover:text-primary transition-colors">
+            Voice Studio
+          </Link>
           <Link href="/contact" className="hover:text-primary transition-colors">
             Contact
           </Link>
@@ -138,6 +141,13 @@ export function Navigation() {
             >
               Pricing
             </a>
+            <Link
+              href="/voice"
+              className="block text-sm text-muted-foreground hover:text-primary"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Voice Studio
+            </Link>
             <Link
               href="/contact"
               className="block text-sm text-muted-foreground hover:text-primary"
